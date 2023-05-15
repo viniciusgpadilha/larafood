@@ -32,7 +32,7 @@
                     @foreach ($plans as $plan)
                         <tr>
                             <td>{{ $plan->name }}</td>
-                            <td>{{ number_format($plan->price, 2, ',', '.') }}</td>
+                            <td>R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
                             <td>
                                 <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning">Ver</a>
                                 <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-secondary">Editar</a>
