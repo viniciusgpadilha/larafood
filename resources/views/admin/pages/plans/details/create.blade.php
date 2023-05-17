@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Adicionar novo detalhes ao {$plan->name}")
+@section('title', "Adicionar novo detalhe ao {$plan->name}")
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -12,7 +12,6 @@
     </ol>
     <h1>Adicionar novo detalhe ao {{ $plan->name }}</h1>
 @stop
-{{-- @dd($details) --}}
 
 @section('content')
     <div class="card">

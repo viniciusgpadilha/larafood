@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DetailsPlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateDetailsPlan;
 
 class DetailsPlanController extends Controller
 {
@@ -43,7 +44,7 @@ class DetailsPlanController extends Controller
         ]);
     }
 
-    public function store(Request $request, $url) {
+    public function store(StoreUpdateDetailsPlan $request, $url) {
         $plan = $this->plan->where('url', $url)->first();
 
         if (!$plan) {
@@ -69,7 +70,7 @@ class DetailsPlanController extends Controller
         ]);
     }
 
-    public function update(Request $request, $url, $id) {
+    public function update(StoreUpdateDetailsPlan $request, $url, $id) {
         $plan = $this->plan->where('url', $url)->first();
         $details = $this->detailsPlan->find($id);
 
@@ -80,5 +81,34 @@ class DetailsPlanController extends Controller
         $details->update($request->all());
 
         return redirect()->route('details.plan.index', $plan->url);
+    }
+
+    public function show($url, $id) {
+        $plan = $this->plan->where('url', $url)->first();
+        $details = $this->detailsPlan->find($id);
+
+        if (!$plan || !$details) {
+            return redirect()->back();
+        }
+
+        return view('admin.pages.plans.details.show', [
+            'plan' => $plan,
+            'details' => $details,
+        ]);
+    }
+
+    public function destroy($url, $id) {
+        $plan = $this->plan->where('url', $url)->first();
+        $details = $this->detailsPlan->find($id);
+
+        if (!$plan || !$details) {
+            return redirect()->back();
+        }
+
+        $details->delete();
+
+        return redirect()
+                    ->route('details.plan.index', $plan->url)
+                    ->with('message', 'Registro deletado com sucesso');
     }
 }
