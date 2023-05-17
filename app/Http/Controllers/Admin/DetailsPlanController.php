@@ -54,4 +54,31 @@ class DetailsPlanController extends Controller
 
         return redirect()->route('details.plan.index', $plan->url);
     }
+
+    public function edit($url, $id) {
+        $plan = $this->plan->where('url', $url)->first();
+        $details = $this->detailsPlan->find($id);
+
+        if (!$plan || !$details) {
+            return redirect()->back();
+        }
+
+        return view('admin.pages.plans.details.edit', [
+            'plan' => $plan,
+            'details' => $details,
+        ]);
+    }
+
+    public function update(Request $request, $url, $id) {
+        $plan = $this->plan->where('url', $url)->first();
+        $details = $this->detailsPlan->find($id);
+
+        if (!$plan || !$details) {
+            return redirect()->back();
+        }
+
+        $details->update($request->all());
+
+        return redirect()->route('details.plan.index', $plan->url);
+    }
 }
