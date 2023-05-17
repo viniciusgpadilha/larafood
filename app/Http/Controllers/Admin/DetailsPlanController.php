@@ -52,5 +52,6 @@ class DetailsPlanController extends Controller
 
         $plan->details()->create($request->all());
 
+        return redirect()->route('details.plan.index', $plan->url);
     }
 }
