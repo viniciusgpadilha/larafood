@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhes do plano <b>{ $plan->name }")
+@section('title', "Descrição do {$plan->name}")
 
 @section('content_header')
-    <h1>Detalhes do plano <b>{{ $plan->name }}</h1>
+    <h1>Descrição do <b>{{ $plan->name }}</b></h1>
 @stop
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhes do plan {$plan->name}")
+@section('title', "Detalhes do {$plan->name}")
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -9,7 +9,7 @@
         <li class="breadcrumb-item"><a href="{{ route('plans.show', $plan->url) }}">{{ $plan->name }}</a></li>
         <li class="breadcrumb-item active"><a class="active" href="{{ route('details.plan.index', $plan->url) }}">Detalhes do {{ $plan->name }}</a></li>
     </ol>
-    <h1>Detalhes do {{ $plan->name }} <a href="{{ route('plans.create') }}" class="ml-3 btn btn-dark"><i class="fas fa-sm fa-plus"></i>  Adicionar Plano</a></h1>
+    <h1>Detalhes do {{ $plan->name }} <a href="{{ route('details.plan.create', $plan->url) }}" class="ml-3 btn btn-dark"><i class="fas fa-sm fa-plus"></i>  Adicionar Detalhes</a></h1>
 @stop
 {{-- @dd($details) --}}
 
