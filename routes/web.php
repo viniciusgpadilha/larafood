@@ -14,7 +14,11 @@
 Route::prefix('admin')
         ->namespace('Admin')
         ->group(function () {
-            //Routes Details Plan,
+            //Routes Profiles
+            Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
+            Route::resource('profiles', 'ACL\ProfileController');
+
+            //Routes Details Plan
             Route::get('plans/{url}/details/create', 'DetailsPlanController@create')->name('details.plan.create');
             Route::delete('plans/{url}/details/{idDetails}', 'DetailsPlanController@destroy')->name('details.plan.destroy');
             Route::get('plans/{url}/details/{idDetails}', 'DetailsPlanController@show')->name('details.plan.show');
