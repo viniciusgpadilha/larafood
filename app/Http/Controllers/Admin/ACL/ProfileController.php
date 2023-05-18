@@ -9,6 +9,8 @@ use App\Http\Requests\StoreUpdateProfile;
 
 class ProfileController extends Controller
 {
+    protected $profile;
+    
     public function __construct(Profile $profile) {
         $this->profile = $profile;
     }
