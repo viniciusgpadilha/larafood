@@ -54,9 +54,7 @@ class PermissionProfileController extends Controller
         }
 
         if(!$request->permissions || count($request->permissions) == 0) {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Precisa escolher ao mesmo uma permissão.');
+            return redirect()->back()->with('error', 'Precisa escolher ao mesmo uma permissão.');
         }
 
         $profile->permissions()->attach($request->permissions);
