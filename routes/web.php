@@ -19,6 +19,7 @@ Route::prefix('admin')
             Route::post('profiles/{id}/permissions', 'ACL\PermissionProfileController@attachPermissionsProfile')->name('profiles.permissions.attach');
             Route::any('profiles/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailable')->name('profiles.permissions.available');
             Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profiles.permissions');
+            Route::get('permissionss/{id}/profile', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');
 
             //Routes Permissions
             Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
