@@ -23,7 +23,5 @@ class Profile extends Model
                 $queryFilter->where('permissions.name', 'LIKE', "%{$filter}%");
             }
         })->paginate();
-
-        return $permissions;
     }
 }
