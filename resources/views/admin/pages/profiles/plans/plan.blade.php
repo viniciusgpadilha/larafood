@@ -6,7 +6,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route('permissions.index') }}">Perfis</a></li>
-        <li class="breadcrumb-item active"><a class="active" href="{{ route('profiles.plans') }}">Planos</a></li>
+        <li class="breadcrumb-item active"><a class="active" href="{{ route('profiles.plans', $profile->id) }}">Planos</a></li>
     </ol>
     <h1>Planos vinculados a <strong>{{$profile->name}}</strong></h1>
 @stop
@@ -22,11 +22,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($profiles as $profile)
+                    @foreach ($plans as $plan)
                         <tr>
-                            <td>{{ $profile->name }}</td>
+                            <td>{{ $plan->name }}</td>
                             <td>
-                                <a href="{{ route('profiles.permissions.detach', [$profile->id, $profile->id]) }}" class="btn btn-danger">Desvincular</a>
+                                <a href="{{ route('plans.profile.detach', [$profile->id, $plan->id]) }}" class="btn btn-danger">Desvincular</a>
                             </td>
                         </tr>
                     @endforeach
@@ -35,9 +35,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $profiles->appends($filters)->links() !!}
+                {!! $plans->appends($filters)->links() !!}
             @else
-                {!! $profiles->links() !!}
+                {!! $plans->links() !!}
             @endif
 
         </div>

@@ -6,8 +6,8 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route('plans.index') }}">Planos</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('plans.profiles') }}">Perfis</a></li>
-        <li class="breadcrumb-item active"><a class="active" href="{{ route('plans.profiles.available') }}">Disponíveis</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('plans.profiles', $plan->id) }}">Perfis</a></li>
+        <li class="breadcrumb-item active"><a class="active" href="{{ route('plans.profiles.available', $plan->id) }}">Disponíveis</a></li>
     </ol>
     <h1>Perfis disponíveis para o <strong>{{$plan->name}}</strong></h1>
 @stop

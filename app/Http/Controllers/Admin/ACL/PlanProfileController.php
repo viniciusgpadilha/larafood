@@ -64,7 +64,7 @@ class PlanProfileController extends Controller
         ]);
     }
 
-    public function attachProfilesPlan(Request $request, $id) {
+    public function attachPlansProfile(Request $request, $id) {
         $plan = $this->plan->find($id);
 
         if (!$plan) {
@@ -80,7 +80,7 @@ class PlanProfileController extends Controller
         return redirect()->route('plans.profiles', $plan->id);
     }
 
-    public function detachProfilesPlan($id, $idProfile) {
+    public function detachPlansProfile($id, $idProfile) {
         $plan = $this->plan->find($id);
         $profile = $this->profile->find($idProfile);
 
