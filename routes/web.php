@@ -13,6 +13,7 @@
 
 Route::prefix('admin')
         ->namespace('Admin')
+        ->middleware('auth')
         ->group(function () {
             //Routes Plans x Profiles
             Route::get('plans/{id}/profile/{idProfile}/detach', 'ACL\PlanProfileController@detachPlansProfile')->name('plans.profiles.detach');
@@ -53,7 +54,7 @@ Route::prefix('admin')
             Route::delete('plans/{url}', 'PlanController@destroy')->name('plans.destroy');
             Route::get('plans/{url}', 'PlanController@show')->name('plans.show');
             Route::post('plans', 'PlanController@store')->name('plans.store');
-            
+
             Route::get('plans', 'PlanController@index')->name('plans.index');
 
             //Home Dashboard
@@ -67,3 +68,11 @@ Route::prefix('admin')
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');

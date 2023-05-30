@@ -72,7 +72,7 @@ class PlanProfileController extends Controller
         }
 
         if(!$request->profiles || count($request->profiles) == 0) {
-            return redirect()->back()->with('error', 'Precisa escolher ao mesmo uma permissão.');
+            return redirect()->back()->with('error', 'Precisa escolher ao menos uma permissão.');
         }
 
         $plan->profiles()->attach($request->profiles);
