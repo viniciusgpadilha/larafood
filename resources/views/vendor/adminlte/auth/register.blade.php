@@ -14,7 +14,7 @@
 @section('auth_header', __('adminlte::adminlte.register_message'))
 
 @section('auth_body')
-    <p><strong>Plano:</strong> {{ session('plan')->name }}</p>
+    <p><strong>Plano:</strong> {{ session('plan')->name ?? '' }}</p>
     <form action="{{ $register_url }}" method="post">
         @csrf
         {{-- Name field --}}
@@ -29,6 +29,42 @@
             </div>
 
             @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- Empresa field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="empresa" class="form-control @error('empresa') is-invalid @enderror"
+                   value="{{ old('empresa') }}" placeholder="Empresa">
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-city {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('empresa')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- CNPJ field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="cnpj" class="form-control @error('cnpj') is-invalid @enderror"
+                    value="{{ old('cnpj') }}" placeholder="CNPJ">
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-file {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('cnpj')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
