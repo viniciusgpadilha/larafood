@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Plan;
 use App\Repositories\Contracts\TenantRepositoryInterface;
-use Illuminate\Support\Str;
 
 class TenantService
 {
@@ -30,7 +29,6 @@ class TenantService
             'cnpj' => $data['cnpj'],
             'name' => $data['empresa'],
             'email' => $data['email'],
-            'url' => Str::kebab($data['empresa']),
             'subscription' => now(),
             'expires_at' => now()->addDays(7),
         ]);
