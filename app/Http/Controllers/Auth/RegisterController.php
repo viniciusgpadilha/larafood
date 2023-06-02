@@ -55,8 +55,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'cnpj' => ['required', 'unique:tenants'],
             'empresa' => ['required', 'unique:tenants,name'],
+            'cnpj' => ['required', 'unique:tenants'],
+
         ]);
     }
 
@@ -69,8 +70,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $plan = session('plan');
-
-        dd('NÃO TÁ FAZENDO O CADASTRO');
 
         if (!$plan) {
             return redirect()->route('site.home');

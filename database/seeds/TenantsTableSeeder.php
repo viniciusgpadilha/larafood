@@ -20,7 +20,7 @@ class TenantsTableSeeder extends Seeder
         $plan->tenants()->create([
             'cnpj' => '23882706000120',
             'name' => 'Cozinha de Casa',
-            'url' => 'cozinhadecasa',
+            'url' => 'cozinha-de-casa',
             'email' => 'cozinhadecasa@cozinhadecasa.com.br'
         ]);
     }
