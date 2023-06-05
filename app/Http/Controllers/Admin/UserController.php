@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->user->paginate();
+        $users = $this->user->tenant()->paginate();
 
         return view('admin.pages.users.index', [
             'users' => $users
