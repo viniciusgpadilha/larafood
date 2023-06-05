@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\ACL;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\StoreUpdateuser;
+use App\Http\Requests\StoreUpdateUser;
 
 class UserController extends Controller
 {
