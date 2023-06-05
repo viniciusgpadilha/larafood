@@ -11,9 +11,6 @@
     @php( $register_url = $register_url ? url($register_url) : '' )
 @endif
 
-@php($error = @error('name'))
-@dd($error)
-
 @section('auth_header', __('adminlte::adminlte.register_message'))
 
 @section('auth_body')
