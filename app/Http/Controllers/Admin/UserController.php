@@ -50,6 +50,7 @@ class UserController extends Controller
         $tenant = auth()->user()->tenant;
         $data = $request->all();
         $data['tenant_id'] = $tenant->id;
+        $data['password'] = bcrypt($data['password']);
 
         $this->user->create($data);
 
@@ -107,6 +108,12 @@ class UserController extends Controller
 
         if (!$user) {
             return redirect()->back();
+        }
+
+        $data = $request->only(['name', 'email']);
+
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
         }
 
         $user->update($request->all());
