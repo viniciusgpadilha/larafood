@@ -295,11 +295,11 @@ return [
             'url'  => 'admin',
             'icon' => 'fas fa-tachometer-alt',
         ],
-        [
-            'text' => 'Empresas',
-            'url'  => 'admin/tenants',
-            'icon' => 'fas fa-building',
-        ],
+        // [
+        //     'text' => 'Empresas',
+        //     'url'  => 'admin/tenants',
+        //     'icon' => 'fas fa-building',
+        // ],
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',
@@ -310,11 +310,11 @@ return [
             'url'  => 'admin/profiles',
             'icon' => 'fas fa-address-book',
         ],
-        [
-            'text' => 'Cargos',
-            'url'  => 'admin/roles',
-            'icon' => 'fas fa-address-card',
-        ],
+        // [
+        //     'text' => 'Cargos',
+        //     'url'  => 'admin/roles',
+        //     'icon' => 'fas fa-address-card',
+        // ],
         [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
@@ -330,21 +330,21 @@ return [
             'url'  => 'admin/categories',
             'icon' => 'fas fa-layer-group',
         ],
-        [
-            'text' => 'Produtos',
-            'url'  => 'admin/products',
-            'icon' => 'fas fa-hamburger',
-        ],
-        [
-            'text' => 'Mesas',
-            'url'  => 'admin/tables',
-            'icon' => 'fas fa-tablet',
-        ],
-        [
-            'text' => 'Pedidos',
-            'url'  => 'admin/orders',
-            'icon' => 'fas fa-utensils',
-        ],
+        // [
+        //     'text' => 'Produtos',
+        //     'url'  => 'admin/products',
+        //     'icon' => 'fas fa-hamburger',
+        // ],
+        // [
+        //     'text' => 'Mesas',
+        //     'url'  => 'admin/tables',
+        //     'icon' => 'fas fa-tablet',
+        // ],
+        // [
+        //     'text' => 'Pedidos',
+        //     'url'  => 'admin/orders',
+        //     'icon' => 'fas fa-utensils',
+        // ],
     ],
 
     /*
