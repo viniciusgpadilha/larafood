@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->user->tenant()->paginate();
+        $users = $this->user->latest()->tenantUser()->paginate();
 
         return view('admin.pages.users.index', [
             'users' => $users
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = $this->user->find($id);
+        $user = $this->user->tenantUser()->find($id);
 
         if (!$user) {
             return redirect()->back();
@@ -84,7 +84,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->user->find($id);
+        $user = $this->user->tenantUser()->find($id);
 
         if (!$user) {
             return redirect()->back();
@@ -104,7 +104,7 @@ class UserController extends Controller
      */
     public function update(StoreUpdateUser $request, $id)
     {
-        $user = $this->user->find($id);
+        $user = $this->user->tenantUser()->find($id);
 
         if (!$user) {
             return redirect()->back();
@@ -129,7 +129,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = $this->user->find($id);
+        $user = $this->user->tenantUser()->find($id);
 
         if (!$user) {
             return redirect()->back();
@@ -150,6 +150,8 @@ class UserController extends Controller
                                     $query->orWhere('name', $request->filter);
                                 }
                             })
+                            ->latest()
+                            ->tenantUser()
                             ->paginate();
 
         return view('admin.pages.users.index', [

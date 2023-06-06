@@ -39,7 +39,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function scopeTenant(Builder $query) {
+    public function scopeTenantUser(Builder $query) {
         return $query->where('tenant_id', auth()->user()->tenant_id);
     } 
         
