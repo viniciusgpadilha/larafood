@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -34,18 +35,20 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUpdateCategory  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateCategory $request)
     {
-        //
+        $this->category->create($request->all());
+
+        return redirect()->route('categories.index');
     }
 
     /**
