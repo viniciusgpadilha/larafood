@@ -330,11 +330,11 @@ return [
             'url'  => 'admin/categories',
             'icon' => 'fas fa-layer-group',
         ],
-        // [
-        //     'text' => 'Produtos',
-        //     'url'  => 'admin/products',
-        //     'icon' => 'fas fa-hamburger',
-        // ],
+        [
+            'text' => 'Produtos',
+            'url'  => 'admin/products',
+            'icon' => 'fas fa-hamburger',
+        ],
         // [
         //     'text' => 'Mesas',
         //     'url'  => 'admin/tables',
