@@ -335,11 +335,11 @@ return [
             'url'  => 'admin/products',
             'icon' => 'fas fa-hamburger',
         ],
-        // [
-        //     'text' => 'Mesas',
-        //     'url'  => 'admin/tables',
-        //     'icon' => 'fas fa-tablet',
-        // ],
+        [
+            'text' => 'Mesas',
+            'url'  => 'admin/tables',
+            'icon' => 'fas fa-tablet',
+        ],
         // [
         //     'text' => 'Pedidos',
         //     'url'  => 'admin/orders',

@@ -15,6 +15,11 @@ Route::prefix('admin')
         ->namespace('Admin')
         ->middleware('auth')
         ->group(function () {
+            //Routes Tables
+            // Route::get('tables/qrcode/{identify}', 'TableController@qrcode')->name('tables.qrcode');
+            Route::any('tables/search', 'TableController@search')->name('tables.search');
+            Route::resource('tables', 'TableController');
+
             //Product x Category
             Route::get('products/{id}/category/{idCategory}/detach', 'CategoryProductController@detachCategoryProduct')->name('products.category.detach');
             Route::post('products/{id}/categories', 'CategoryProductController@attachCategoriesProduct')->name('products.categories.attach');
