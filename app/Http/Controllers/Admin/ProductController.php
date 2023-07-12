@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         $this->repository = $product;
 
-        $this->middleware(['can:products']);
+        // $this->middleware(['can:products']);
     }
 
     /**
@@ -112,7 +112,6 @@ class ProductController extends Controller
         $tenant = auth()->user()->tenant;
 
         if ($request->hasFile('image') && $request->image->isValid()) {
-
             if (Storage::exists($product->image)) {
                 Storage::delete($product->image);
             }
