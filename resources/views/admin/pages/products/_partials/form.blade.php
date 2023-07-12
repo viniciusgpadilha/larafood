@@ -10,7 +10,7 @@
 </div>
 <div class="form-group">
     <label>Descrição:</label>
-    <textarea name="description" class="form-control" ols="30" rows="5" value="{{ $product->description ?? old('description') }}"></textarea>
+    <textarea name="description" class="form-control" ols="30" rows="5">{{ $product->description ?? old('description') }}</textarea>
 </div>
 <div class="form-group">
     <label>Imagem:</label>
