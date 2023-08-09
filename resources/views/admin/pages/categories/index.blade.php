@@ -7,7 +7,10 @@
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li class="breadcrumb-item active"><a class="active" href="{{ route('categories.index') }}">Categorias</a></li>
     </ol>
-    <h1>Categorias <a href="{{ route('categories.create') }}" class="ml-3 btn btn-dark"><i class="fas fa-sm fa-plus"></i>  Adicionar categoria</a></h1>
+    <h1>Categorias 
+        @can('add_ cat')
+            <a href="{{ route('categories.create') }}" class="ml-3 btn btn-dark"><i class="fas fa-sm fa-plus"></i>  Adicionar categoria</a></h1>
+        @endcan
 @stop
 
 @section('content')
