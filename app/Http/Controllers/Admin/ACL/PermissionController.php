@@ -12,7 +12,7 @@ class PermissionController extends Controller
     public function __construct(Permission $permission) {
         $this->permission = $permission;
 
-        $this->middleare(['can:permissions']);
+        $this->middleware(['can:permissions']);
     }
 
     /**

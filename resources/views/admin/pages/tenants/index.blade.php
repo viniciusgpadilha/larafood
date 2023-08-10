@@ -37,8 +37,9 @@
                             </td>
                             <td>{{ $tenant->name }}</td>
                             <td style="width=10px;">
+                                <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-warning">Ver</a>
                                 <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-warning">VER</a>
+                                
                             </td>
                         </tr>
                     @endforeach
