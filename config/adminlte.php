@@ -295,11 +295,12 @@ return [
             'url'  => 'admin',
             'icon' => 'fas fa-tachometer-alt',
         ],
-        // [
-        //     'text' => 'Empresas',
-        //     'url'  => 'admin/tenants',
-        //     'icon' => 'fas fa-building',
-        // ],
+        [
+            'text' => 'Empresas',
+            'url'  => 'admin/tenants',
+            'icon' => 'fas fa-building',
+            'can'  => 'tenants'
+        ],
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',

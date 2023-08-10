@@ -2,7 +2,7 @@
 
 return [
     'admins' => [
-        // 'felipe@f.com.br',
+        'felipe@f.com.br',
         'tido@tido.com.br',
     ],
 ];
