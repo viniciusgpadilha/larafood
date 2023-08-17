@@ -34,7 +34,7 @@
                             <td>
                                 <a href="{{ route('roles.show', $role->id) }}" class="btn btn-warning">Ver</a>
                                 <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-info">Editar</a>
-                                {{-- <a href="{{ route('roles.permissions', $role->id) }}" class="btn btn-success">Permissões</a> --}}
+                                <a href="{{ route('roles.permissions', $role->id) }}" class="btn btn-success">Permissões</a>
                             </td>
                         </tr>
                     @endforeach

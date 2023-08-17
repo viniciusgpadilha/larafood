@@ -17,6 +17,13 @@ Route::prefix('admin')
         ->group(function () {
             //Routes Tables
 
+            //Routes Permissions x Roles
+            Route::get('roles/{id}/permission/{idPermission}/detach', 'ACL\PermissionRoleController@detachPermissionsRole')->name('roles.permissions.detach');
+            Route::post('roles/{id}/permissions', 'ACL\PermissionRoleController@attachPermissionsRole')->name('roles.permissions.attach');
+            Route::any('roles/{id}/permissions/create', 'ACL\PermissionRoleController@permissionsAvailable')->name('roles.permissions.available');
+            Route::get('roles/{id}/permissions', 'ACL\PermissionRoleController@permissions')->name('roles.permissions');
+            Route::get('permissions/{id}/role', 'ACL\PermissionRoleController@roles')->name('permissions.roles');
+
             //Routes Roles
             Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
             Route::resource('roles', 'ACL\RoleController');
