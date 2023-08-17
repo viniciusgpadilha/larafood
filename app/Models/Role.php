@@ -12,6 +12,10 @@ class Role extends Model
         return $this->belongsToMany(Permission::class);
     }
 
+    public function users() {
+        return $this->belongsToMany(User::class);
+    }
+
     public function permissionsAvailable($filter = null) {
         $permissions = Permission::whereNotIn('permissions.id', function($query) {
             $query->select('permission_role.permission_id');
