@@ -5,7 +5,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a class="active" href="{{ route('permissions.index') }}">Cargos</a></li>
+        <li class="breadcrumb-item active"><a class="active" href="{{ route('roles.index') }}">Cargos</a></li>
     </ol>
     <h1>Permissões do <strong>{{$role->name}}</strong> <a href="{{ route('roles.permissions.available', $role->id) }}" class="ml-3 btn btn-dark"><i class="fas fa-sm fa-plus"></i> Adicionar Nova Permissão</a></h1>
 @stop

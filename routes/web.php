@@ -116,8 +116,6 @@ Route::get('/', 'Site\SiteController@index')->name('site.home');
 Auth::routes();
 
 
-Auth::routes();
-
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+// Route::get('/home', function() {
+//     return view('home');
+// })->name('home')->middleware('auth');

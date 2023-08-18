@@ -5,7 +5,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a class="active" href="{{ route('permissions.index') }}">Cargos</a></li>
+        <li class="breadcrumb-item active"><a class="active" href="{{ route('roles.index') }}">Cargos</a></li>
     </ol>
     <h1>Permissões disponíveis para o <strong>{{$role->name}}</strong></h1>
 @stop
