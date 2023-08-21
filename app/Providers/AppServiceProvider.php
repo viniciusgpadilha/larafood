@@ -3,12 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+
 use App\Models\{
     Plan,
     Tenant,
     Product,
     Category
 };
+
 use App\Observers\{
     PlanObserver,
     TenantObserver,
@@ -16,6 +18,13 @@ use App\Observers\{
     CategoryObserver
 };
 
+use App\Repositories\Contracts\{
+    TenantRepositoryInterface
+};
+
+use App\Repositories\{
+    TenantRepository
+};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +35,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            TenantRepositoryInterface::class,
+            TenantRepository::class,
+        );
     }
 
     /**
