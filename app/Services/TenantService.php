@@ -8,6 +8,17 @@ use App\Repositories\Contracts\TenantRepositoryInterface;
 class TenantService
 {
     private $plan, $data = [];
+    private $repository;
+
+    public function __construct(TenantRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function getAllTenants() 
+    {
+        return $this->repository->getAllTenants();
+    }
 
     public function make(Plan $plan, array $data)
     {
