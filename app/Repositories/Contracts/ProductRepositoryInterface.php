@@ -2,9 +2,8 @@
 
 namespace App\Repositories\Contracts;
 
-interface ProductRepositoryInterface 
+interface ProductRepositoryInterface
 {
-    // public function getProductsByTenantUuid(string $uuid);
-    public function getProductsByTenantId(int $tenant_id);
-    // public function getProductByUrl(string $url);
+    public function getproductsByTenantId(int $tenant_id, array $categories);
+    public function getProductByFlag(string $flag);
 }

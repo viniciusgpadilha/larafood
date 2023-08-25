@@ -2,30 +2,26 @@
 
 namespace App\Services;
 
-use App\Repositories\ProductRepository;
 use App\Repositories\Contracts\ProductRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
-use App\Repositories\TenantRepository;
 
-class TableService
+class ProductService
 {
-    protected $tableRepository, $tenantRepository;
+    protected $productRepository, $tenantRepository;
 
-    public function __construct(TenantRepositoryInterface $tenantRepository, ProductRepositoryInterface $tableRepository)
-    {
+    public function __construct(ProductRepositoryInterface $productRepository, TenantRepositoryInterface $tenantRepository) {
+        $this->productRepository = $productRepository;
         $this->tenantRepository = $tenantRepository;
-        $this->tableRepository = $tableRepository;
     }
 
-    public function getProductsByTenantId(int $tenant_id)
-    {
-        $tenant = $this->tenantRepository->getTenantById($uuid);
+    public function getProductsByTenantUuid(string $uuid, array $categories) {
+        $tenant = $this->tenantRepository->getTenantByUuid($uuid);
 
-        return $this->tableRepository->getProductsByTenantId($tenant->id);
+        return $this->productRepository->getProductsByTenantId($tenant->id, $categories);
     }
 
-    // public function getTableByIdentify(string $identify)
-    // {
-    //     return $this->tableRepository->getTableByIdentify($identify);
-    // }
+    public function getProductByFlag(string $flag) {
+        return $this->productRepository->getProductByFlag($flag);
+    }
+
 }
