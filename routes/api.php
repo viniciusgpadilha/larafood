@@ -1,4 +1,5 @@
 <?php
+Route::post('/sanctum/token', 'Api\Auth\AuthClientController@auth');
 
 Route::group([
     'prefix' => 'v1',
