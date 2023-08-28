@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Http\Resources\ClientResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,5 +27,12 @@ class AuthClientController extends Controller
         $token = $client->createToken($request->device_name)->plainTextToken;
 
         return response()->json(['token' => $token]);
+    }
+
+    public function me(Request $request) 
+    {
+        $client = $request->user();
+
+        return new ClientResource($client);
     }
 }
