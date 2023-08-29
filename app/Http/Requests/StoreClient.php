@@ -25,12 +25,10 @@ class StoreClient extends FormRequest
     {
         // $id = $this->segment(3);
 
-        $rules = [
+        return [
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|min:3|max:255|unique:clients',
             'password' => 'required| min:6|max:16',
         ];
-
-        return $rules;
     }
 }
