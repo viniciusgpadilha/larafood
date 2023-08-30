@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->integer('table_id')->nullable();
             $table->double('total', 10, 2);
             $table->text('comment')->nullable();
-            $table->enum('status', ['open', 'done', 'working', 'canceled', 'delivering']);
+            $table->enum('status', ['open', 'done', 'rejected', 'working', 'canceled', 'delivering']);
             $table->timestamps();
 
             $table->foreign('tenant_id')
