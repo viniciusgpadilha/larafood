@@ -40,7 +40,7 @@ class StoreOrder extends FormRequest
                 'required',
             ],
             'products.*.identify' => ['required', 'exists:products,uuid'],
-            'products.*.qty' => ['required', 'integer'],
+            'products.*.qty' => ['required', 'integer '],
         ];
     }
 }
