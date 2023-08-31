@@ -9,7 +9,7 @@ class Order extends Model
 {
     use TenantTrait;
 
-    protected $fillable = ['identify', 'client_id', 'table_id', 'total', 'comment', 'status'];
+    protected $fillable = ['tenant_id', 'identify', 'client_id', 'table_id', 'total', 'comment', 'status'];
 
     public function tenant() {
         return $this->belongsTo(Tenant::class);

@@ -1,5 +1,4 @@
 @extends('site.layouts.app')
-
 @section('content')
 <div class="text-center">
     <h1 class="title-plan">Escolha o plano</h1>

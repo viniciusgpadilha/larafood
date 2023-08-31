@@ -19,8 +19,8 @@ class OrderRepository implements OrderRepositoryInterface
         string $identify,
         float $total,
         string $status,
-        int $tenantId,
         string $comment = '',
+        int $tenantId,
         $clientId = '',
         $tableId = ''
     ) {
@@ -43,9 +43,7 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function getOrderByIdentify(string $identify)
     {
-        return $this->entity
-                        ->where('identify', $identify)
-                        ->first();
+        return $this->entity->where('identify', $identify)->first();
     }
 
     public function registerProductsOrder(int $orderId, array $products)

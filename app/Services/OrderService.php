@@ -23,22 +23,28 @@ class OrderService
 
     public function createNewOrder(array $order)
     {
+        $productsOrder = $this->getProductsByOrder($order['products'] ?? []);
+        
         $identify = $this->getIdentifyOrder();
         $total = $this->getTotalOrder([]);
         $status = 'open';
+        $comment = isset($order['comment']) ? $order['comment'] : '';
         $tenantId = $this->getTenantIdOrder($order['token_company']);
         $clientId = $this->getClientIdOrder();
-        $tableId = $this->getTableIdOrder($order['table']);
+        $tableId = $this->getTableIdOrder($order['table'] ?? '');
+
 
         $order = $this->orderRepository->createNewOrder(
             $identify,
             $total,
             $status,
+            $comment,
             $tenantId,
             $clientId,
             $tableId
         );
-        
+
+        return $order;
     }
 
     private function getIdentifyOrder($qtyCharacters = 8)
@@ -60,6 +66,11 @@ class OrderService
         }
 
         return $identify;
+    }
+
+    private function getProductsByOrder(array $productsOrder)
+    {
+
     }
 
     private function getTotalOrder(array $products): float

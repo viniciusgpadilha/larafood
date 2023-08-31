@@ -8,8 +8,8 @@ interface OrderRepositoryInterface
         string $identify,
         float $total,
         string $status,
-        int $tenantId,
         string $comment = '',
+        int $tenantId,
         $clientId = '',
         $tableId = ''
     );
