@@ -47,6 +47,8 @@ class OrderService
             $tableId
         );
 
+        $this->orderRepository->registerProductsOrder($order->id, $productsOrder);
+
         return $order;
     }
 
@@ -78,7 +80,7 @@ class OrderService
         foreach ($productsOrder as $productOrder) {
             $product = $this->productRepository->getProductByUuid($productOrder['identify']);
 
-            array_push([
+            array_push($products, [
                 'id' => $product->id,
                 'qty'=> $productOrder['qty'],
                 'price' => $product->price,
@@ -93,7 +95,7 @@ class OrderService
         $total = 0;
 
         foreach ($products as $product) {
-            $total += ($product->qty * $product->price);
+            $total += ($product['price'] * $product['qty']);
         }
 
         return (float) $total;
