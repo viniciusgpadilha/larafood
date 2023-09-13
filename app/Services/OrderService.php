@@ -33,7 +33,7 @@ class OrderService
         $status = 'open';
         $comment = isset($order['comment']) ? $order['comment'] : '';
         $tenantId = $this->getTenantIdOrder($order['token_company']);
-        $clientId = $this->getClientIdOrder();
+        $clientId = $this->getClientIdByOrder();
         $tableId = $this->getTableIdOrder($order['table'] ?? '');
 
 
@@ -119,12 +119,8 @@ class OrderService
         return '';
     }
 
-    private function getClientIdOrder()
+    private function getClientIdByOrder()
     {
         return auth()->check() ? auth()->user()->id : '';
-
-
-
-
     }
 }
