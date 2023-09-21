@@ -12,3 +12,10 @@ npm-debug.log
 yarn-error.log
 composer.json
 composer.lock
+public/vendor/adminlte
+config/adminlte.php
+public/vendor/bootstrap
+public/vendor/fontawesome-free
+public/vendor/jquery
+public/vendor/overlayScrollbars
+public/vendor/popper
