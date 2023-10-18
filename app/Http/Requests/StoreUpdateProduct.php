@@ -40,3 +40,4 @@ class StoreUpdateProduct extends FormRequest
         return $rules;
     }
 }
+
