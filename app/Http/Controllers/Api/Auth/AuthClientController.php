@@ -29,14 +29,14 @@ class AuthClientController extends Controller
         return response()->json(['token' => $token]);
     }
 
-    public function me(Request $request) 
+    public function me(Request $request)
     {
         $client = $request->user();
 
         return new ClientResource($client);
     }
 
-    public function logout(Request $request) 
+    public function logout(Request $request)
     {
         $client = $request->user();
 

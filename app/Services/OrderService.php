@@ -8,7 +8,7 @@ use App\Repositories\Contracts\TableRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
 use Illuminate\Http\Request;
 
-class OrderService 
+class OrderService
 {
     protected $orderRepository, $tenantRepository, $tableRepository, $productRepository;
 
@@ -24,14 +24,14 @@ class OrderService
         $this->productRepository = $productRepository;
     }
 
-    public function ordersByClient() 
+    public function ordersByClient()
     {
         $idClient = $this->getClientIdByOrder();
 
         return $this->orderRepository->getOrdersByClientId($idClient);
     }
 
-    public function getOrderByIdentify(string $identify) 
+    public function getOrderByIdentify(string $identify)
     {
         return $this->orderRepository->getOrderByIdentify($identify);
     }
@@ -39,12 +39,12 @@ class OrderService
     public function createNewOrder(array $order)
     {
         $productsOrder = $this->getProductsByOrder($order['products'] ?? []);
-        
+
         $identify = $this->getIdentifyOrder();
         $total = $this->getTotalOrder($productsOrder);
         $status = 'open';
-        $comment = isset($order['comment']) ? $order['comment'] : '';
         $tenantId = $this->getTenantIdOrder($order['token_company']);
+        $comment = isset($order['comment']) ? $order['comment'] : '';
         $clientId = $this->getClientIdByOrder();
         $tableId = $this->getTableIdOrder($order['table'] ?? '');
 
@@ -53,8 +53,8 @@ class OrderService
             $identify,
             $total,
             $status,
-            $comment,
             $tenantId,
+            $comment,
             $clientId,
             $tableId
         );
@@ -127,7 +127,7 @@ class OrderService
 
             return $table->id;
         }
-        
+
         return '';
     }
 

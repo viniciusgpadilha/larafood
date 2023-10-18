@@ -19,8 +19,8 @@ class OrderRepository implements OrderRepositoryInterface
         string $identify,
         float $total,
         string $status,
-        string $comment = '',
         int $tenantId,
+        string $comment = '',
         $clientId = '',
         $tableId = ''
     ) {
