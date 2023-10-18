@@ -12,4 +12,10 @@ class Evaluation extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function client()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
 }
