@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class EvaluationApi extends Controller
+class EvaluationApiController extends Controller
 {
     //
 }
