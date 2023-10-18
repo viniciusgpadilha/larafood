@@ -17,9 +17,15 @@ class EvaluationService
 
     public function createNewEvaluation(string $identifyOrder)
     {
-        $tenant = $this->tenantRepository->getTenantByUuid($uuid);
+        $clientId = $this->getIdClient();
+        $order = $this->orderRepository->getOrderByIdentify($identifyOrder);
 
-        return $this->evaluationRepository->getEvaluationsByTenantId($tenant->id);
+        return $this->evaluationRepository->createNewEvaluation($order->id, $clientId);
+    }
+
+    private function getIdClient()
+    {
+        return auth()->user()->id;
     }
 
 }
