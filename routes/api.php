@@ -9,6 +9,8 @@ Route::group([
 
     Route::get('/auth/v1/my-orders', 'Api\OrderApiController@myOrders');
     Route::post('/auth/v1/orders', 'Api\OrderApiController@store');
+
+    Route::post('/auth/v1/orders/{identify}/evaluations', 'Api\EvaluationApiController@store');
 });
 
 Route::group([
@@ -17,13 +19,13 @@ Route::group([
 ], function () {
     Route::get('/tenants/{uuid}', 'TenantApiController@show');
     Route::get('/tenants', 'TenantApiController@index');
-    
+
     Route::get('/categories/{identify}', 'CategoryApiController@show');
     Route::get('/categories', 'CategoryApiController@categoriesByTenant');
-    
+
     Route::get('/tables/{identify}', 'TableApiController@show');
     Route::get('/tables', 'TableApiController@tablesByTenant');
-    
+
     Route::get('/products/{identify}', 'ProductApiController@show');
     Route::get('/products', 'ProductApiController@productsByTenant');
 
@@ -31,5 +33,5 @@ Route::group([
 
     Route::post('/orders', 'OrderApiController@store');
     Route::get('/orders/{identify}', 'OrderApiController@show');
-    
+
 });
