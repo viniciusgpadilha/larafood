@@ -31,8 +31,8 @@ class StoreUpdateTable extends FormRequest
                 'required',
                 'min:3',
                 'max:255',
-                "unique:tables,identify,{$id},id",
-                // new UniqueTenant('tables', $id),
+                // "unique:tables,identify,{$id},id",
+                new UniqueTenant('tables', $id),
             ],
             'description' => ['required', 'min:3', 'max:1000'],
         ];
