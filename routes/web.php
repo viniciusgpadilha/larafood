@@ -44,7 +44,7 @@ Route::prefix('admin')
             Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
             Route::resource('roles', 'ACL\RoleController');
 
-            // Route::get('tables/qrcode/{identify}', 'TableController@qrcode')->name('tables.qrcode');
+            Route::get('tables/qrcode/{identify}', 'TableController@qrcode')->name('tables.qrcode');
             Route::any('tables/search', 'TableController@search')->name('tables.search');
             Route::resource('tables', 'TableController');
 
