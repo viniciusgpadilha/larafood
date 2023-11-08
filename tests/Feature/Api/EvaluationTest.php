@@ -20,7 +20,7 @@ class EvaluationTest extends TestCase
     {
         $order = 'fake_value';
 
-        $response = $this->postJson("api/auth/v1/orders/{$order}/evaluations");
+        $response = $this->postJson("/api/auth/v1/orders/{$order}/evaluations");
 
         $response->assertStatus(401);
     }
@@ -36,7 +36,7 @@ class EvaluationTest extends TestCase
 
         $token = $client->createToken(Str::random(10))->plainTextToken;
 
-        $order = factory(Order::class, 10)->create(['client_id' => $client->id]);
+        $order = $client->orders()->save(factory(Order::class)->make());
 
         $payload = [
             'stars' => 5,
@@ -48,11 +48,11 @@ class EvaluationTest extends TestCase
         ];
 
         $response = $this->postJson(
-            "api/auth/v1/orders/{$order}/evaluations",
+            "/api/auth/v1/orders/{$order->identify}/evaluations",
             $payload,
             $headers
         );
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 }
