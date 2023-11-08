@@ -116,7 +116,7 @@ Route::prefix('admin')
             Route::get('plans', 'PlanController@index')->name('plans.index');
 
             //Home Dashboard
-            Route::get('/', 'PlanController@index')->name('admin.index');
+            Route::get('/', 'DashboardController@home')->name('admin.home');
 });
 
 Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
