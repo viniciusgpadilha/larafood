@@ -12,12 +12,12 @@ class CategoryApiController extends Controller
 {
     protected $categoryService;
 
-    public function __construct(CategoryService $categoryService) 
+    public function __construct(CategoryService $categoryService)
     {
         $this->categoryService = $categoryService;
     }
 
-    public function categoriesByTenant(Request $request)  
+    public function categoriesByTenant(TenantFormRequest $request)
     {
         // if (!$request->token_company) {
         //     return response()->json(['message' => 'Token Not Found'], 404);
@@ -28,7 +28,7 @@ class CategoryApiController extends Controller
         return CategoryResource::collection($categories);
     }
 
-    public function show(TenantFormRequest $request, $identify) 
+    public function show(TenantFormRequest $request, $identify)
     {
         if (!$category = $this->categoryService->getCategoryByUuid($identify)) {
             return response()->json(['message' => 'Category Not Found'], 404);
