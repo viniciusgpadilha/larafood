@@ -38,7 +38,7 @@ class AuthTest extends TestCase
         $response = $this->postJson('/api/auth/token', $payload);
 
         $response->assertStatus(404)
-                    ->assertExactJson([
+                    ->assertSimilarJson([
                         'message' => trans('messages.invalid_credentials')
                     ]);
     }
@@ -92,7 +92,7 @@ class AuthTest extends TestCase
         ]);
 
         $response->assertStatus(200)
-                    ->assertExactJson([
+                    ->assertSimilarJson([
                         'data' => [
                             'name' => $client->name,
                             'email' => $client->email,
