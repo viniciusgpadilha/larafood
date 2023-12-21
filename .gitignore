@@ -10,8 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-composer.json
-composer.lock
 public/vendor/adminlte
 config/adminlte.php
 public/vendor/bootstrap
